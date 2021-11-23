@@ -7,6 +7,9 @@
     <title>Codingpirates file uploader</title>
 </head>
 <body>
-    hello world! tyes 
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" accept=".mp3, .wav" id="fileUpload" name="uploadedFile">
+        <input type="submit" value="Upload File">
+    </form>
 </body>
 </html>
