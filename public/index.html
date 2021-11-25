@@ -11,5 +11,31 @@
         <input type="file" id="fileUpload" name="uploadedFile">
         <input type="submit" value="Upload File">
     </form>
+
+    <div id="id01"></div>
+
+    <script>
+        var xmlhttp = new XMLHttpRequest(); 
+        var url = "/list";
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                console.log("State changed")
+            myFunction(myArr);
+        }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+        function myFunction(arr) {
+            console.log(arr)
+            var out = "";
+            var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<a href="' + arr[i].path + '" download="' + arr[i].name.split('.')[0] + '.' + arr[i].name.split('.')[1] + '"><h4>' + arr[i].name + '</h4></a>';
+        }
+        console.log(out)
+        document.getElementById("id01").innerHTML = out;
+        }
+        </script>
 </body>
 </html>
