@@ -11,7 +11,7 @@ router.post("/", function(req, res) {
     }
 
     let uploadedFile = req.files.uploadedFile;
-    let uploadPath = __dirname + '/../public/files' + uploadedFile.name;
+    let uploadPath = __dirname + '/../public/files/' + uploadedFile.name;
 
     uploadedFile.mv(uploadPath, function (err) {
         if (err) {
